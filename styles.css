@@ -2111,3 +2111,134 @@ body {
         transform: translateX(0);
     }
 }
+/* Ensure logo is on the left and burger menu is on the right */
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem; /* Add some padding */
+    height: 60px; /* Set a specific height for the navbar */
+}
+
+/* Prevent horizontal scrolling on mobile */
+body {
+    overflow-x: hidden; /* This prevents horizontal scrolling */
+}
+
+/* Adjust mobile navbar styles */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        right: -100%;
+        top: 0;
+        height: 100vh;
+        background: rgba(248, 245, 241, 0.98);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        transition: right 0.5s ease;
+    }
+
+    .nav-links li {
+        opacity: 0;
+        padding: 1.5rem;
+    }
+
+    .burger {
+        display: block;
+        z-index: 2;
+        position: absolute;
+        right: 1rem; /* Ensure burger menu is on the right */
+        top: 50%; /* Center vertically */
+        transform: translateY(-50%); /* Adjust for centering */
+    }
+
+    .logo {
+        position: absolute;
+        left: 1rem; /* Ensure logo is on the left */
+        top: 50%; /* Center vertically */
+        transform: translateY(-50%); /* Adjust for centering */
+    }
+
+    .nav-active {
+        right: 0;
+    }
+
+    .toggle .line1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .toggle .line2 {
+        opacity: 0;
+    }
+
+    .toggle .line3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    .collections-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+    }
+
+    .video-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .main-video-wrapper {
+        flex: none;
+        height: 50vh;
+        min-height: 250px;
+    }
+
+    .video-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+
+    .video-item {
+        height: 150px;
+    }
+
+    .try-on-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .model-container, .controls-container {
+        width: 100%;
+        max-width: 400px;
+        margin-right: 0;
+    }
+
+    .controls-container {
+        margin-top: 2rem;
+    }
+}
+
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Burger menu styling */
+.burger div {
+    width: 25px;
+    height: 2px;
+    background-color: #2c2c2c;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
